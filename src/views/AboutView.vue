@@ -1,15 +1,11 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <h3>Version 1.0.0</h3>
+  <router-link to="/">Go Back</router-link>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<script>
+export default {
+  name: 'AboutView',
+  inheritAttrs: false, // disable 'non-props' warning
+};
+</script>

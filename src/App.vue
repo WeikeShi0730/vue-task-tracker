@@ -11,25 +11,25 @@
 </template>
 
 <script>
-import HeaderComponent from './components/HeaderComponent'
-import FooterComponent from './components/FooterComponent'
+import HeaderComponent from './components/HeaderComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderComponent,
-    FooterComponent,
+    FooterComponent
   },
   data() {
     return {
-      showAddTask: false,
+      showAddTask: false
     }
   },
   methods: {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
-    },
-  },
+    }
+  }
 }
 </script>
 

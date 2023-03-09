@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import CustomButton from './CustomButton'
+import CustomButton from './CustomButton.vue'
 
 export default {
   name: 'HeaderComponent',
