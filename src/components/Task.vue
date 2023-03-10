@@ -6,7 +6,7 @@
   >
     <h3>
       {{ task.text }}
-      <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
+      <i @click="$emit('delete-task', task.id)" class="xmark">X</i>
     </h3>
     <p>{{ task.day }}</p>
   </div>
@@ -16,13 +16,13 @@
 export default {
   name: 'Task',
   props: {
-    task: Object,
-  },
+    task: Object
+  }
 }
 </script>
 
 <style scope>
-.fas {
+.xmark {
   color: red;
 }
 
