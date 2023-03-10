@@ -1,10 +1,6 @@
 <template>
   <AddTask v-show="showAddTask" @add-task="addTask" />
-  <Tasks
-    @toggle-reminder="toggleReminder"
-    @delete-task="deleteTask"
-    :tasks="tasks"
-  />
+  <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
 </template>
 
 <script>
@@ -13,15 +9,15 @@ import AddTask from '../components/AddTask.vue'
 export default {
   name: 'HomeView',
   props: {
-    showAddTask: Boolean,
+    showAddTask: Boolean
   },
   components: {
     Tasks,
-    AddTask,
+    AddTask
   },
   data() {
     return {
-      tasks: [],
+      tasks: []
     }
   },
   methods: {
@@ -29,9 +25,9 @@ export default {
       const res = await fetch('api/tasks', {
         method: 'POST',
         headers: {
-          'Content-type': 'application/json',
+          'Content-type': 'application/json'
         },
-        body: JSON.stringify(task),
+        body: JSON.stringify(task)
       })
 
       const data = await res.json()
@@ -41,7 +37,7 @@ export default {
     async deleteTask(id) {
       if (confirm('Are you sure?')) {
         const res = await fetch(`api/tasks/${id}`, {
-          method: 'DELETE',
+          method: 'DELETE'
         })
 
         res.status === 200
@@ -56,9 +52,9 @@ export default {
       const res = await fetch(`api/tasks/${id}`, {
         method: 'PUT',
         headers: {
-          'Content-type': 'application/json',
+          'Content-type': 'application/json'
         },
-        body: JSON.stringify(updTask),
+        body: JSON.stringify(updTask)
       })
 
       const data = await res.json()
@@ -68,9 +64,10 @@ export default {
       )
     },
     async fetchTasks() {
-      const res = await fetch('api/tasks')
+      const res = await fetch('/api/tasks')
 
       const data = await res.json()
+      console.log(data)
 
       return data
     },
@@ -80,10 +77,10 @@ export default {
       const data = await res.json()
 
       return data
-    },
+    }
   },
   async created() {
     this.tasks = await this.fetchTasks()
-  },
+  }
 }
 </script>
